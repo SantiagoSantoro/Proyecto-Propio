@@ -1,0 +1,213 @@
+.body_merch {
+  background-image: url("../imagenes/fondomerch.jpg");
+  background-position: center; }
+
+.card-text {
+  font-size: 15px; }
+
+.card {
+  display: inline-block;
+  text-align: center; }
+
+.btn,
+.btn-dark {
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black; }
+
+.body_fotos2 {
+  background-color: #1d1a1c;
+  background-image: none; }
+
+#carouselExampleControls {
+  background-color: #fad4f4;
+  border-style: solid;
+  margin: auto;
+ }
+
+h1 {
+  text-align: center;
+  font-size: 150px;
+  padding: 20px;
+  font-family: 'New Rocker', cursive;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  letter-spacing: 6px; }
+
+nav ul li {
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Anton', sans-serif;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  display: inline-block;
+  border-style: solid;
+  margin: 0;
+  padding: 20px;
+  width: 200px;
+  background-color: #fad4f4;
+  box-shadow: 1px 2px 15px;
+  transition: width 1s; }
+
+nav ul {
+  text-align: center; }
+
+nav ul li:hover {
+  width: 300px; }
+
+body {
+  background-size: cover;
+  background-image: url("../imagenes/background.jpg");
+  background-position: center; }
+
+iframe {
+  border-radius: 10px; }
+
+h2,
+h3,
+h3 {
+  list-style: none;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Anton', sans-serif;
+  background-color: none;
+  position: relative;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 3px black;
+  background-color: #fad4f4;
+  box-shadow: 1px 2px 15px;
+  border-style: solid;
+  transition: width 1s; }
+
+p {
+  font-size: 30px;
+  font-family: 'Anton', sans-serif;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  text-align: center; }
+
+table tr th {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Anton', sans-serif;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  padding: 20px;
+  background-color: #fad4f4;
+  border-style: solid; }
+
+.div_tabla {
+  margin-top: 350px; }
+
+.historia {
+  font-size: 100px; }
+
+.tour {
+  font-size: 100px; }
+
+.body_tour {
+  background-image: url("../imagenes/backgroundtour.jpg");
+  background-position: center; }
+
+.body_newsteller {
+  background-image: url("../imagenes/newsletter-background.jpg");
+  background-position: center;
+  font-size: 10px;
+  font-family: 'Anton', sans-serif;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  padding: 20px;
+  background-color: #fad4f4;
+  border-style: solid; }
+
+a:link {
+  text-decoration: none; }
+
+a {
+  -webkit-text-fill-color: #afa6ac;
+  -webkit-text-stroke: 3px black; }
+
+a:hover {
+  -webkit-text-fill-color: #afa6ac;
+  -webkit-text-stroke: 3px black; }
+
+form {
+  border: 4px;
+  font-size: 20px;
+  -webkit-text-fill-color: #afa6ac;
+  -webkit-text-stroke: 2px black; }
+
+.newsteller {
+  font-size: 100px; }
+
+.body_newsteller {
+  text-align: center;
+  font-family: 'Anton', sans-serif; }
+
+.body_fotos {
+  background-image: none;
+  background-color: #200119; }
+
+.fotos {
+  width: 350px;
+  height: 350px;
+  padding: 15px;
+  background-color: #fad4f4;
+  border-style: solid;
+  margin: auto; }
+
+#fotos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px; }
+
+.iconos img {
+  padding-left: 220px;
+  display: inline;
+  width: 50px;
+  height: 50px;
+  background-color: none; }
+
+footer p {
+  font-size: 15px;
+  -webkit-text-fill-color: #fae3f3;
+  -webkit-text-stroke: 2px black;
+  background-color: #fad4f4;
+}
+ 
+
+@media (max-width: 768px) {
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-stroke: 2px black;
+    letter-spacing: 6px; }
+  .iconos img {
+    padding-left: 60px;
+    display: inline;
+    width: 20px;
+    height: 20px; }
+  .tour {
+    font-size: 40px; }
+  .body_tour {
+    background-image: url(imagenes/backgroundtour.jpg);
+    background-position: center; }
+  table tr th {
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Anton', sans-serif;
+    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-stroke: 2px black;
+    padding: 0px;
+    background-color: #fad4f4;
+    border-style: solid; }
+  footer p {
+    font-size: 10px;
+    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-stroke: 2px black;
+    background-color: #fad4f4; }
+  }
