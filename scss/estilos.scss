@@ -1,6 +1,7 @@
 @import "variables";
 @import '~mdb-ui-kit/css/mdb.min.css';
 
+
 .body_merch {
     background-image: url("../imagenes/fondomerch.jpg");
     background-position: center;
@@ -40,14 +41,14 @@
         background-color: $color_secundario;
         border-style: solid;
         margin: auto;
+        
     }
 }
 
 
 h1 {
     text-align: center;
-    font-size: 150px;
-    padding: 20px;
+    font-size: 110px;
     font-family: 'New Rocker', cursive;
     -webkit-text-fill-color: $color_secundario;
     -webkit-text-stroke: 2px $color_primario;
@@ -56,6 +57,7 @@ h1 {
 
 nav ul {
     text-align: center;
+   
 
     li {
         list-style: none;
@@ -72,11 +74,16 @@ nav ul {
         background-color: $color_secundario;
         box-shadow: 1px 2px 15px;
         transition: width 1s;
+        letter-spacing: 1px;
+        transition: color 1s;
 
         &:hover {
-            width: 300px;
+            color: black;
+    
         }
     }
+      
+    
 
 }
 
@@ -148,7 +155,7 @@ p {
 
 }
 
-.body_newsteller {
+.body_newsletter {
     background-image: url("../imagenes/newsletter-background.jpg");
     background-position: center;
     font-size: 10px;
@@ -160,7 +167,7 @@ p {
     border-style: solid;
     text-align: center;
 
-    .newsteller {
+    .newsletter {
         font-size: 100px;
     }
 
@@ -178,11 +185,11 @@ a:link {
 
 a {
     -webkit-text-fill-color: rgb(175, 166, 172);
-    -webkit-text-stroke: 3px black;
+    -webkit-text-stroke: 2px black;
 
     &:hover {
         -webkit-text-fill-color: rgb(175, 166, 172);
-        -webkit-text-stroke: 3px black;
+        -webkit-text-stroke: 2px black;
 
     }
 }
