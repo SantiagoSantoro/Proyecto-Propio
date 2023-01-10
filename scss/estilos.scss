@@ -12,11 +12,8 @@
 	box-sizing: unset;
 }
 
+@import "iframe";
 
-
-iframe {
-    border-radius: 10px;
-}
 @import "body";
 
 @import "merch";
