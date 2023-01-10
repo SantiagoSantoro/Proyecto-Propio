@@ -1,0 +1,29 @@
+.body_newsletter {
+    background-image: url("../imagenes/newsletter-background.jpg");
+    background-position: center;
+    font-size: 10px;
+    font-family: 'Anton', sans-serif;
+    -webkit-text-fill-color: $color_secundario;
+    -webkit-text-stroke: 2px $color_primario;
+    padding: 20px;
+    background-color: $color_secundario;
+    border-style: solid;
+    text-align: center;
+    &:after,
+    &:before {
+	box-sizing: unset;
+}
+
+
+    .newsletter {
+        font-size: 100px;
+
+    }
+
+    form {
+        border: 4px;
+        font-size: 20px;
+        -webkit-text-fill-color: rgb(175, 166, 172);
+        -webkit-text-stroke: 2px black;
+    }
+}

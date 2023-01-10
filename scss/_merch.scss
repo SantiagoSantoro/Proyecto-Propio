@@ -1,0 +1,21 @@
+.body_merch {
+    background-image: url("../imagenes/fondomerch.jpg");
+    background-position: center;
+    .merch {
+        font-size: 100px;
+    }
+    .card-text {
+        font-size: 15px;
+    }
+
+    .card {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .btn,
+    .btn-dark {
+        -webkit-text-fill-color: $color_secundario;
+        -webkit-text-stroke: 1px $color_primario;
+    }
+}

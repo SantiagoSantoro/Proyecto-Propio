@@ -1,0 +1,14 @@
+a:link {
+    text-decoration: none;
+}
+
+a {
+    -webkit-text-fill-color: $color_terciario;
+    -webkit-text-stroke: 2px black;
+
+    &:hover {
+        -webkit-text-fill-color: $color_terciario;
+        -webkit-text-stroke: 2px black;
+
+    }
+}

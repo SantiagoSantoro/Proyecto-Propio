@@ -1,0 +1,20 @@
+.body_fotos2 {
+    background-color: rgb(29, 26, 28);
+    background-image: none;
+
+    .fotos {
+        text-align: center;
+        font-size: 100px;
+        letter-spacing: 6px;
+        -webkit-text-fill-color: $color_secundario;
+        -webkit-text-stroke: 5px $color_primario;
+        box-shadow: 1px 2px 15px;
+    }
+
+    #carouselExampleControls {
+        background-color: $color_secundario;
+        border-style: solid;
+        margin: auto;
+
+    }
+}
