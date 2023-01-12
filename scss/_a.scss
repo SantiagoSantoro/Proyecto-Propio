@@ -3,12 +3,14 @@ a:link {
 }
 
 a {
-    -webkit-text-fill-color: $color_terciario;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-fill-color: $color_secundario;
+    -webkit-text-stroke: 2px $color_primario;
+    letter-spacing: 2px;
 
     &:hover {
-        -webkit-text-fill-color: $color_terciario;
-        -webkit-text-stroke: 2px black;
+        -webkit-text-fill-color: $color_secundario;
+        -webkit-text-stroke: 2px $color_primario;
+        letter-spacing: 2px;
 
     }
 }
