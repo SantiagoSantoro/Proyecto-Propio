@@ -1,10 +1,12 @@
 body {
     background-size: cover;
-    background-image: url("../imagenes/background.jpg");
+    background-image: url("../imagenes/background.jpg"); 
     background-position: center;
+    
 
     header nav ul {
         text-align: center;
+        
         
         li {
             list-style: none;
@@ -37,5 +39,8 @@ body {
         -webkit-text-stroke: 2px $color_primario;
         letter-spacing: 6px;
         font-weight: 700;
+        animation: scale-in-center .8s cubic-bezier(.25,.46,.45,.94) both
     }
-}
+        
+    }
+    @keyframes scale-in-center{0%{transform:scale(0);opacity:1}100%{transform:scale(1);opacity:1}}

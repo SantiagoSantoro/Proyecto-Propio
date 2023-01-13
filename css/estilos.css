@@ -41,7 +41,16 @@ body {
     -webkit-text-fill-color: #fae3f3;
     -webkit-text-stroke: 2px black;
     letter-spacing: 6px;
-    font-weight: 700; }
+    font-weight: 700;
+    animation: scale-in-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1; }
+  100% {
+    transform: scale(1);
+    opacity: 1; } }
 
 .body_merch {
   background-image: url("../imagenes/fondomerch.jpg");
@@ -146,8 +155,8 @@ a {
     -webkit-text-stroke: 2px black; }
 
 .body_fotos2 {
-  background-image: none;
-  background-color: #afa6ac; }
+  background-color: #afa6ac;
+  background-image: linear-gradient(to right, #fae3f3, #afa6ac); }
   .body_fotos2 .fotos {
     text-align: center;
     font-size: 100px;

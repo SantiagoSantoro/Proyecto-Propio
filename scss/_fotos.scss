@@ -1,7 +1,8 @@
 .body_fotos2 {
-
-    background-image: none;
+    
     background-color: $color_terciario;
+    background-image: linear-gradient(to right, $color_secundario, $color_terciario);
+
 
     .fotos {
         text-align: center;
