@@ -6,6 +6,7 @@
     -webkit-text-stroke: 2px $color_primario;
     background-color: $color_secundario;
     text-align: center;
+    box-sizing: border-box;
 
     &:after,
     &:before {
@@ -16,6 +17,11 @@
     .newsletter {
         font-size: 100px;
 
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     form {
