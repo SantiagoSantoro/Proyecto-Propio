@@ -12,6 +12,10 @@
         -webkit-text-stroke: 3px $color_primario;
 
     }
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
     #carouselExampleControls {
         background-color: $color_secundario;
