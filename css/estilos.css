@@ -15,7 +15,8 @@ iframe {
 body {
   background-size: cover;
   background-image: url("../imagenes/background.jpg");
-  background-position: center; }
+  background-position: center;
+  overflow-x: hidden; }
   body header nav ul {
     text-align: center; }
     body header nav ul li {
