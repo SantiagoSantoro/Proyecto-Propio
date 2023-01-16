@@ -9,7 +9,8 @@
   box-sizing: unset; }
 
 iframe {
-  border-radius: 10px; }
+  border-radius: 10px;
+  border: #fae3f3 solid; }
 
 body {
   background-size: cover;
@@ -169,14 +170,21 @@ a {
     margin: auto; }
 
 @media (max-width: 768px) {
+  body nav ul {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center; }
   body h1 {
     text-align: center;
-    font-size: 40px;
-    padding: 20px;
-    font-family: "Anton", sans-serif;
+    font-size: 35px;
+    font-family: 'Bangers', cursive;
     -webkit-text-fill-color: #fae3f3;
     -webkit-text-stroke: 2px black;
     letter-spacing: 6px; }
+  body iframe {
+    width: 360px;
+    height: 600px; }
   .body_newsletter .newsletter {
     font-size: 40px;
     text-align: center; }

@@ -1,15 +1,25 @@
 @media (max-width: 768px) {
   body {
+    
+    nav ul {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
     h1 {
       text-align: center;
-      font-size: 40px;
-      padding: 20px;
-      font-family: "Anton", sans-serif;
+      font-size: 35px;
+      font-family: 'Bangers', cursive;
       -webkit-text-fill-color: rgb(250, 227, 243);
       -webkit-text-stroke: 2px black;
       letter-spacing: 6px;
-    }
+    } 
+    iframe {
+      width: 360px;
+      height: 600px;
+    } 
   }
 
   .body_newsletter {
