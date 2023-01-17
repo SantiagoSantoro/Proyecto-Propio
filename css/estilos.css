@@ -235,9 +235,9 @@ a {
   body iframe {
     width: 350px;
     height: 600px; }
-  body #container_2 h2 {
+  body .container_2 h2 {
     font-size: 26px; }
-  body #container_2 h3 {
+  body .container_2 h3 {
     font-size: 25px; }
   .body_newsletter .newsletter {
     font-size: 40px;
