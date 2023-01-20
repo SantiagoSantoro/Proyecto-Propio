@@ -2,6 +2,10 @@
     background-image: url("../imagenes/fondomerch.jpg");
     background-position: center;
     box-sizing: border-box;
+
+    .container {
+        justify-content: center;
+    }
     .merch {
         font-size: 100px;
     }

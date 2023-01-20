@@ -59,6 +59,8 @@ body {
   background-image: url("../imagenes/fondomerch.jpg");
   background-position: center;
   box-sizing: border-box; }
+  .body_merch .container {
+    justify-content: center; }
   .body_merch .merch {
     font-size: 100px; }
   .body_merch .card-text {
