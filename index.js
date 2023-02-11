@@ -1,24 +1,37 @@
+// CARRITO DE COMPRAS DE LA SECCION MERCH//
 
 const productos = [
-    { id: 1, nombre: "Remera", precio: "$3500", categoria: "Indumentaria" },
-    { id: 2, nombre: "Mochila", precio: "$1500", categoria: "Indumentaria" },
-    { id: 3, nombre: "Gorra", precio: "$3500", categoria: "Indumentaria"},      //LO PUSE CON LA PRIMERA MAYUSCULA
-    { id: 4, nombre: "Buzo", precio: "$6000", categoria: "Indumentaria" },
-    { id: 5, nombre: "Musculosa", precio: " $ 4500", categoria: "Indumentaria" },
- ];
+    { id: 1, nombre: "remera", precio: "$3500", categoria: "Indumentaria", talle: "M" },
+    { id: 2, nombre: "mochila", precio: "$1500", categoria: "Indumentaria", talle: "M" },
+    { id: 3, nombre: "gorra", precio: "$3500", categoria: "Indumentaria", talle: "M" },
+    { id: 4, nombre: "buzo", precio: "$6000", categoria: "Indumentaria", talle: "M" },
+    { id: 5, nombre: "musculosa", precio: " $ 4500", categoria: "Indumentaria", talle: "M" },
+];
 
-productos.push({ id: 6, nombre: "Medias", precio: "1000", categoria: "Indumentaria" },);
-productos.unshift({ id: 0, nombre: "Zapatillas", precio: "12000", categoria: "Indumentaria" },);
-console.log(productos);
+// productos.push({ id: 6, nombre: "Medias", precio: "1000", categoria: "Indumentaria" },);
+// productos.unshift({ id: 0, nombre: "Zapatillas", precio: "12000", categoria: "Indumentaria" },);
+// console.log(productos);
 
-const producto = prompt("Ingrese el nombre del producto que quiere comprar"); //CONSULTAR PARA QUE LEA MINUSCULAS toLowerCase
-const filtrado = productos.filter (item => item.nombre === producto);
 
-filtrado.forEach( (item) => {
-    let mensaje = `
+while (prompt) {
+    const producto = prompt("Ingrese el nombre del producto que desea comprar:"
+        + "\n1. Remera"
+        + "\n2. Mochila"
+        + "\n3. Gorra"
+        + "\n4. Buzo"
+        + "\n5. Musculosa");
+
+    const filtrado = productos.filter(item => item.nombre === producto.toLowerCase());
+
+    filtrado.forEach((item) => {
+        let mensaje = `
     Id: ${item.id}
     Nombre: ${item.nombre}
     Precio: ${item.precio}
     Categoria: ${item.categoria}
-    `;     alert(mensaje);
-})
+    Talle: ${item.talle}
+    `; alert(mensaje);
+    })
+}
+
+
