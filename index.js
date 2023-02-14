@@ -33,5 +33,8 @@ while (prompt) {
     `; alert(mensaje);
     })
 }
+const cards = document.getElementsByClassName("card");
+console.log(card)
+
 
 
