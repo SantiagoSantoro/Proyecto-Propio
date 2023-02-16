@@ -15,28 +15,39 @@ const productoIndex = parseInt(prompt("Ingrese el número de ID del producto que
     + "\nID4. Buzo"
     + "\nID5. Musculosa")) - 1;
 
-const productoSeleccionado = productos.filter(producto => producto.id === (productoIndex + 1))[0];
+if (isNaN(productoIndex) || productoIndex < 0 || productoIndex >= productos.length) {
+    alert("El valor ingresado no es válido. Por favor, ingrese un número entre 1 y " + productos.length + ".");
+} else {
+    const productoSeleccionado = productos[productoIndex];
 
-let mensaje = `
-    Id: ${productoSeleccionado.id}
-    Nombre: ${productoSeleccionado.nombre}
-    Precio: ${productoSeleccionado.precio}
-    Categoria: ${productoSeleccionado.categoria}
-    Talle: ${productoSeleccionado.talle}
-    `;
-alert(mensaje);
+    let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
+    while (isNaN(cantidad) || cantidad <= 0) {
+        alert("El valor ingresado no es válido. Por favor, ingrese un número mayor que cero.");
+        cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
+    }
 
-const confirmaCompra = confirm ("¿Desea comprarlo?")
-if (confirmaCompra) {
-    carrito.push(productoSeleccionado);
-    console.log(carrito);
-    alert("Producto ingresado al carrito");
-} else { &&
-    alert("Compra cancelada");
+    let mensaje = `
+        Id: ${productoSeleccionado.id}
+        Nombre: ${productoSeleccionado.nombre}
+        Precio unitario: ${productoSeleccionado.precio}
+        Cantidad: ${cantidad}
+        Precio total: ${productoSeleccionado.precio * cantidad}
+        Categoria: ${productoSeleccionado.categoria}
+        Talle: ${productoSeleccionado.talle}
+        `;
+    alert(mensaje);
+
+    const confirmaCompra = confirm ("¿Desea comprarlo?")
+    if (confirmaCompra) {
+        for (let i = 0; i < cantidad; i++) {
+            carrito.push(productoSeleccionado);
+        }
+        console.log(carrito);
+        alert(`Producto ingresado al carrito (${cantidad} unidades)`);
+    } else {
+        alert("Compra cancelada");
+    }
 }
-
-
-
 
 
 
