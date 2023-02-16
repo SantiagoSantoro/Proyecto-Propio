@@ -17,24 +17,34 @@ const productoIndex = parseInt(prompt("Ingrese el número de ID del producto que
 
 const productoSeleccionado = productos.filter(producto => producto.id === (productoIndex + 1))[0];
 
+let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
+while (isNaN(cantidad) || cantidad <= 0) {
+    cantidad = parseInt(prompt("La cantidad ingresada no es válida. Por favor, ingrese un número entero mayor a cero:"));
+}
+
+const productoConCantidad = {
+    producto: productoSeleccionado,
+    cantidad: cantidad
+};
+
 let mensaje = `
-    Id: ${productoSeleccionado.id}
-    Nombre: ${productoSeleccionado.nombre}
-    Precio: ${productoSeleccionado.precio}
-    Categoria: ${productoSeleccionado.categoria}
-    Talle: ${productoSeleccionado.talle}
+    Id: ${productoConCantidad.producto.id}
+    Nombre: ${productoConCantidad.producto.nombre}
+    Precio: ${productoConCantidad.producto.precio}
+    Cantidad: ${productoConCantidad.cantidad}
+    Categoria: ${productoConCantidad.producto.categoria}
+    Talle: ${productoConCantidad.producto.talle}
     `;
 alert(mensaje);
 
-const confirmaCompra = confirm ("¿Desea comprarlo?")
+const confirmaCompra = confirm("¿Desea comprarlo?")
 if (confirmaCompra) {
-    carrito.push(productoSeleccionado);
+    carrito.push(productoConCantidad);
     console.log(carrito);
     alert("Producto ingresado al carrito");
 } else {
     alert("Compra cancelada");
 }
-
 
 
 
