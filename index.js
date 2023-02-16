@@ -8,17 +8,17 @@ const productos = [
 
 const carrito = [];
 
-const productoIndex = parseInt(prompt("Ingrese el número de ID del producto que desea comprar:"
+const producto = parseInt(prompt("Ingrese el número de ID del producto que desea comprar:"
     + "\nID1. Remera"
     + "\nID2. Mochila"
     + "\nID3. Gorra"
     + "\nID4. Buzo"
     + "\nID5. Musculosa")) - 1;
 
-if (isNaN(productoIndex) || productoIndex < 0 || productoIndex >= productos.length) {
+if (isNaN(producto) || producto < 0 || producto >= productos.length) {
     alert("El valor ingresado no es válido. Por favor, ingrese un número entre 1 y " + productos.length + ".");
 } else {
-    const productoSeleccionado = productos[productoIndex];
+    const productoSeleccionado = productos[producto];
 
     let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
     while (isNaN(cantidad) || cantidad <= 0) {
