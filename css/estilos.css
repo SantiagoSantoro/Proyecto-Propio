@@ -76,7 +76,8 @@ body {
     -webkit-text-stroke: 1.5px black; }
   .body_merch .card {
     display: inline-block;
-    text-align: center; }
+    text-align: center;
+    margin: 10px; }
   .body_merch .btn-dark {
     font-family: 'Anton', sans-serif;
     -webkit-text-fill-color: #fae3f3;

@@ -6,7 +6,10 @@ const productos = [
     { id: 5, nombre: "Musculosa", precio: 4500, categoria: "Indumentaria", talle: "M" },
 ];
 
+// localStorage.setItem("productos", JSON.stringify(productos))
+
 const carrito = [];
+
 
 const productoId = parseInt(prompt("Ingrese el número de ID del producto que desea comprar:"
     + "\nID1. Remera"
@@ -16,6 +19,8 @@ const productoId = parseInt(prompt("Ingrese el número de ID del producto que de
     + "\nID5. Musculosa"));
 
 const productoSeleccionado = productos.filter(producto => producto.id === productoId)[0];
+
+
 
 if (!productoSeleccionado) {
     alert("El valor ingresado no es válido. Por favor, ingrese un número entre 1 y " + productos.length + ".");
