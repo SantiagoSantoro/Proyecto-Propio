@@ -60,7 +60,8 @@ body {
   background-position: center;
   box-sizing: border-box; }
   .body_merch .container {
-    justify-content: center; }
+    justify-content: center;
+    gap: 1rem; }
   .body_merch .merch {
     font-size: 100px; }
   .body_merch .card-title {
