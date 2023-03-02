@@ -108,7 +108,11 @@ body {
     justify-content: center; }
   .body_merch #total-carrito {
     font-size: 24px;
-    margin: 20px 0; }
+    margin: 20px 0;
+    font-family: 'Anton', sans-serif;
+    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-stroke: 1.5px black;
+    letter-spacing: 1px; }
 
 p {
   font-size: 27px;

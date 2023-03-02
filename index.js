@@ -13,7 +13,9 @@ const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("lista-carrito");
 const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
 const totalCarrito = document.getElementById("total-carrito");
-const carrito = JSON.parse(localStorage.getElementById("carrito")) || [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
 
 function mostrarProductos() {
   const contenedorProductos = document.getElementById("contenedor-productos");
@@ -76,8 +78,8 @@ function eliminarDelCarrito(idProducto) {
   actualizarCarrito();
 
   // Actualizar Local Storage
- 
-  localStorage.setItem("carrito", JSON.stringify(carrito ));
+  
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function vaciarCarrito() {

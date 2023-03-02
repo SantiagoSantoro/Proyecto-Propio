@@ -14,7 +14,7 @@
         justify-items: center;
         align-items: center;
         gap: 20px;
-      }
+    }
 
     .card {
         display: inline-block;
@@ -52,6 +52,7 @@
         -webkit-text-stroke: 1.5px $color_primario;
         letter-spacing: 1px;
     }
+
     #contenedor-carrito {
         display: flex;
         flex-direction: column;
@@ -60,18 +61,22 @@
         text-align: center;
         margin: 50px auto;
         max-width: 800px;
-      }
-      
-      #lista-carrito {
+    }
+
+    #lista-carrito {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-      }
-      
-      #total-carrito {
+    }
+
+    #total-carrito {
         font-size: 24px;
         margin: 20px 0;
-      }
-      
+        font-family: 'Anton', sans-serif;
+        -webkit-text-fill-color: $color_secundario;
+        -webkit-text-stroke: 1.5px $color_primario;
+        letter-spacing: 1px;
+    }
+
 }
