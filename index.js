@@ -13,14 +13,14 @@ const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("lista-carrito");
 const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
 const totalCarrito = document.getElementById("total-carrito");
-const carrito = [];
+const carrito = JSON.parse(localStorage.getElementById("carrito")) || [];
 
 function mostrarProductos() {
   const contenedorProductos = document.getElementById("contenedor-productos");
 
   productos.forEach((producto) => {
     const item = document.createElement("div");
-    item.classList.add("producto", "card-producto"); 
+    item.classList.add("producto", "card-producto");
     item.innerHTML = `
   <div class="card">
     <img src="${producto.img}" style="max-width: 100%">
@@ -39,20 +39,11 @@ function agregarAlCarrito(idProducto) {
   const producto = productos.find((p) => p.id === idProducto);
   carrito.push(producto);
   actualizarCarrito();
-
   // Almacenar en el Local Storage
-  const carritoEnString = JSON.stringify(carrito);
-  localStorage.setItem("carrito", carritoEnString);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function cargarCarritoDesdeLocalStorage() {
-  const carritoGuardado = localStorage.getItem("carrito");
-
-  if (carritoGuardado) {
-    carrito = JSON.parse(carritoGuardado);
-    actualizarCarrito();
-  }
-}
+actualizarCarrito()
 
 function actualizarCarrito() {
   const contenedorCarrito = document.getElementById("lista-carrito");
@@ -65,13 +56,19 @@ function actualizarCarrito() {
       <button onclick="eliminarDelCarrito(${producto.id})" class="btn btn-danger">Eliminar</button>
     `;
     contenedorCarrito.appendChild(item);
+
   });
- 
+
   // Actualizar total de la compra
   const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
   const totalCarrito = document.getElementById("total-carrito");
   totalCarrito.innerText = `$${total}`;
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
+botonVaciarCarrito.addEventListener("click", () => {
+  vaciarCarrito()
+})
 
 function eliminarDelCarrito(idProducto) {
   const productoIndex = carrito.findIndex((p) => p.id === idProducto);
@@ -79,21 +76,20 @@ function eliminarDelCarrito(idProducto) {
   actualizarCarrito();
 
   // Actualizar Local Storage
-  const carritoEnString = JSON.stringify(carrito);
-  localStorage.setItem("carrito", carritoEnString);
+ 
+  localStorage.setItem("carrito", JSON.stringify(carrito ));
 }
 
 function vaciarCarrito() {
-  carrito = []; // Vaciar el array carrito
-  actualizarCarrito(); // Actualizar el carrito en la página
-  localStorage.clear(); // Limpiar el carrito del Local Storage
- 
+  carrito.splice(0, carrito.length); 
+  actualizarCarrito(); 
+
 }
 
 
 window.addEventListener("load", () => {
   mostrarProductos();
-  cargarCarritoDesdeLocalStorage();
+
 });
 
 
