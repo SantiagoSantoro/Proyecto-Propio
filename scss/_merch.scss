@@ -3,13 +3,32 @@
     background-position: center;
     box-sizing: border-box;
 
-    .container {
-        justify-content: center;
-        gap: 1rem;
-    }
-
     .merch {
         font-size: 100px;
+    }
+
+    #contenedor-productos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto;
+        justify-items: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+    .card {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+        max-width: 300px;
+    }
+
+
+
+    .card-producto {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
     }
 
     .card-title {
@@ -25,14 +44,6 @@
         font-family: 'Anton', sans-serif;
         -webkit-text-fill-color: $color_secundario;
         -webkit-text-stroke: 1.5px $color_primario;
-
-    }
-
-    .card {
-        display: inline-block;
-        text-align: center;
-        margin: 10px;
-
     }
 
     .btn-dark {
@@ -40,13 +51,27 @@
         -webkit-text-fill-color: $color_secundario;
         -webkit-text-stroke: 1.5px $color_primario;
         letter-spacing: 1px;
-
     }
-
-    .btn .btn-dark {
-        -webkit-text-fill-color: $color_primario;
-        -webkit-text-stroke: $color_primario;
-        letter-spacing: 2px;
-
-    }
+    #contenedor-carrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 50px auto;
+        max-width: 800px;
+      }
+      
+      #lista-carrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      #total-carrito {
+        font-size: 24px;
+        margin: 20px 0;
+      }
+      
 }

@@ -1,58 +1,101 @@
 const productos = [
-    { id: 1, nombre: "Remera", precio: 3500, categoria: "Indumentaria", talle: "M" },
-    { id: 2, nombre: "Mochila", precio: 1500, categoria: "Indumentaria", talle: "M" },
-    { id: 3, nombre: "Gorra", precio: 3500, categoria: "Indumentaria", talle: "M" },
-    { id: 4, nombre: "Buzo", precio: 6000, categoria: "Indumentaria", talle: "M" },
-    { id: 5, nombre: "Musculosa", precio: 4500, categoria: "Indumentaria", talle: "M" },
+  { id: 1, nombre: "Remera Blanca", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg" },
+  { id: 2, nombre: "Buzo", precio: 6000, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg" },
+  { id: 3, nombre: "Gorra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg" },
+  { id: 4, nombre: "Remera Negra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg" },
+  { id: 5, nombre: "Cuadro", precio: 4000, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg" },
+  { id: 6, nombre: "Pin", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg" },
+  { id: 7, nombre: "Remera Celeste", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg" },
+  { id: 8, nombre: "Sticker", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg" },
 ];
 
-// localStorage.setItem("productos", JSON.stringify(productos))
-
+const contenedorProductos = document.getElementById("contenedor-productos");
+const contenedorCarrito = document.getElementById("lista-carrito");
+const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
+const totalCarrito = document.getElementById("total-carrito");
 const carrito = [];
 
+function mostrarProductos() {
+  const contenedorProductos = document.getElementById("contenedor-productos");
 
-const productoId = parseInt(prompt("Ingrese el número de ID del producto que desea comprar:"
-    + "\nID1. Remera"
-    + "\nID2. Mochila"
-    + "\nID3. Gorra"
-    + "\nID4. Buzo"
-    + "\nID5. Musculosa"));
-
-const productoSeleccionado = productos.filter(producto => producto.id === productoId)[0];
-
-
-
-if (!productoSeleccionado) {
-    alert("El valor ingresado no es válido. Por favor, ingrese un número entre 1 y " + productos.length + ".");
-} else {
-    let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
-    while (isNaN(cantidad) || cantidad <= 0) {
-        alert("El valor ingresado no es válido. Por favor, ingrese un número mayor que cero.");
-        cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
-    }
-
-    let mensaje = `
-        Id: ${productoSeleccionado.id}
-        Nombre: ${productoSeleccionado.nombre}
-        Precio unitario: ${productoSeleccionado.precio}
-        Cantidad: ${cantidad}
-        Precio total: ${productoSeleccionado.precio * cantidad}
-        Categoria: ${productoSeleccionado.categoria}
-        Talle: ${productoSeleccionado.talle}
-        `;
-    alert(mensaje);
-
-    const confirmaCompra = confirm ("¿Desea comprarlo?")
-    if (confirmaCompra) {
-        for (let i = 0; i < cantidad; i++) {
-            carrito.push(productoSeleccionado);
-        }
-        console.log(carrito);
-        alert(`Producto ingresado al carrito (${cantidad} unidades)`);
-    } else {
-        alert("Compra cancelada");
-    }
+  productos.forEach((producto) => {
+    const item = document.createElement("div");
+    item.classList.add("producto", "card-producto"); 
+    item.innerHTML = `
+  <div class="card">
+    <img src="${producto.img}" style="max-width: 100%">
+    <div class="card-body">
+      <h5 class="card-title">${producto.nombre}</h5>
+      <p class="card-text">$${producto.precio}</p>
+      <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-dark">Agregar al carrito</button>
+    </div>
+  </div>
+`;
+    contenedorProductos.appendChild(item);
+  });
 }
+
+function agregarAlCarrito(idProducto) {
+  const producto = productos.find((p) => p.id === idProducto);
+  carrito.push(producto);
+  actualizarCarrito();
+
+  // Almacenar en el Local Storage
+  const carritoEnString = JSON.stringify(carrito);
+  localStorage.setItem("carrito", carritoEnString);
+}
+
+function cargarCarritoDesdeLocalStorage() {
+  const carritoGuardado = localStorage.getItem("carrito");
+
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+    actualizarCarrito();
+  }
+}
+
+function actualizarCarrito() {
+  const contenedorCarrito = document.getElementById("lista-carrito");
+  contenedorCarrito.innerHTML = "";
+  carrito.forEach((producto) => {
+    const item = document.createElement("div");
+    item.classList.add("producto");
+    item.innerHTML = `
+      <p>${producto.nombre} - $${producto.precio}</p>
+      <button onclick="eliminarDelCarrito(${producto.id})" class="btn btn-danger">Eliminar</button>
+    `;
+    contenedorCarrito.appendChild(item);
+  });
+ 
+  // Actualizar total de la compra
+  const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+  const totalCarrito = document.getElementById("total-carrito");
+  totalCarrito.innerText = `$${total}`;
+}
+
+function eliminarDelCarrito(idProducto) {
+  const productoIndex = carrito.findIndex((p) => p.id === idProducto);
+  carrito.splice(productoIndex, 1);
+  actualizarCarrito();
+
+  // Actualizar Local Storage
+  const carritoEnString = JSON.stringify(carrito);
+  localStorage.setItem("carrito", carritoEnString);
+}
+
+function vaciarCarrito() {
+  carrito = []; // Vaciar el array carrito
+  actualizarCarrito(); // Actualizar el carrito en la página
+  localStorage.clear(); // Limpiar el carrito del Local Storage
+ 
+}
+
+
+window.addEventListener("load", () => {
+  mostrarProductos();
+  cargarCarritoDesdeLocalStorage();
+});
+
 
 
 
