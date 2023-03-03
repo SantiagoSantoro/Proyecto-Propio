@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
-  
-  
+
+
   body {
 
     nav ul {
@@ -85,17 +85,30 @@
       font-size: 50px;
       text-align: center;
     }
-    .producto {
-      width: 100%;
+
+    #contenedor-productos {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(8, auto);
+      justify-items: center;
+      align-items: center;
+      gap: 20px;
     }
-  }
-
-  .body_historia {
-    text-align: center;
-
-    .historia {
-      font-size: 50px;
+    
+    .card {
+      display: inline-block;
       text-align: center;
+      margin: 10px;
+      max-width: 90%;
     }
+}
+
+.body_historia {
+  text-align: center;
+
+  .historia {
+    font-size: 50px;
+    text-align: center;
   }
+}
 }
