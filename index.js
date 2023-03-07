@@ -36,6 +36,7 @@ function mostrarProductos() {
     <img src="${producto.img}" style="max-width: 100%">
     <div class="card-body">
       <h5 class="card-title">${producto.nombre}</h5>
+      <h4 class="card-subtitle">${producto.categoria}<h4>
       <p class="card-text">$${producto.precio}</p>
       <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-dark">Agregar al carrito</button>
     </div>
@@ -85,7 +86,24 @@ function actualizarCarrito() {
 }
 
 botonVaciarCarrito.addEventListener("click", () => {
-  vaciarCarrito()
+  Swal.fire({
+    title: '¿Está seguro de que desea vaciar el carrito?',
+    text: "Esta acción no se puede deshacer",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, vaciar carrito'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarCarrito();
+      Swal.fire(
+        '¡Carrito vaciado!',
+        '',
+        'success'
+      )
+    }
+  })
 })
 
 function eliminarDelCarrito(idProducto) {
