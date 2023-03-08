@@ -12,14 +12,6 @@ const productos = [
 const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("lista-carrito");
 const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
-// botonVaciarCarrito.addEventListener("click", () => {
-//   Swal.fire({
-//     title: "success",
-//     text: "Do you want to continue?",
-//     icon: "error",
-//     confirmButtonText: "Cool",
-//   });
-// });
 const totalCarrito = document.getElementById("total-carrito");
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -71,12 +63,13 @@ function actualizarCarrito() {
     const item = document.createElement("div");
     item.classList.add("producto");
     item.innerHTML = `
+    <img src="${producto.img}" alt="${producto.nombre}" style="width: 400px; height: 400px; border-radius: 5px;">
       <p>${producto.nombre} - $${producto.precio}</p>
       <button onclick="eliminarDelCarrito(${producto.id})" class="btn btn-danger">Eliminar</button>
     `;
     contenedorCarrito.appendChild(item);
-
   });
+
 
   // Actualizar total de la compra
   const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
