@@ -17,7 +17,6 @@ fetch("../data.json")
 
 function mostrarProductos(productos) {
   console.log(productos)
-  const contenedorProductos = document.getElementById("contenedor-productos");
   productos.forEach((producto) => {
     const item = document.createElement("div");
     item.classList.add("producto", "card-producto");
