@@ -1,69 +1,65 @@
-{
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Remera Blanca",
-        "precio": 3500,
-        "categoria": "Indumentaria",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg"
-      },
-      {
-        "id": 2,
-        "nombre": "Buzo",
-        "precio": 6000,
-        "categoria": "Indumentaria",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg"
-      },
-      {
-        "id": 3,
-        "nombre": "Gorra",
-        "precio": 3500,
-        "categoria": "Indumentaria",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg"
-      },
-      {
-        "id": 4,
-        "nombre": "Remera Negra",
-        "precio": 3500,
-        "categoria": "Indumentaria",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg"
-      },
-      {
-        "id": 5,
-        "nombre": "Cuadro",
-        "precio": 4000,
-        "categoria": "Varios",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg"
-      },
-      {
-        "id": 6,
-        "nombre": "Pin",
-        "precio": 500,
-        "categoria": "Varios",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg"
-      },
-      {
-        "id": 7,
-        "nombre": "Remera Celeste",
-        "precio": 3500,
-        "categoria": "Indumentaria",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg"
-      },
-      {
-        "id": 8,
-        "nombre": "Sticker",
-        "precio": 500,
-        "categoria": "Varios",
-        "talle": "M",
-        "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg"
-      }
-    ]
+[{
+    "id": 1,
+    "nombre": "Remera Blanca",
+    "precio": 3500,
+    "categoria": "Indumentaria",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg"
+  },
+  {
+    "id": 2,
+    "nombre": "Buzo",
+    "precio": 6000,
+    "categoria": "Indumentaria",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Gorra",
+    "precio": 3500,
+    "categoria": "Indumentaria",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Remera Negra",
+    "precio": 3500,
+    "categoria": "Indumentaria",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Cuadro",
+    "precio": 4000,
+    "categoria": "Varios",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Pin",
+    "precio": 500,
+    "categoria": "Varios",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Remera Celeste",
+    "precio": 3500,
+    "categoria": "Indumentaria",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg"
+  },
+  {
+    "id": 8,
+    "nombre": "Sticker",
+    "precio": 500,
+    "categoria": "Varios",
+    "talle": "M",
+    "img": "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg"
   }
-  
+]

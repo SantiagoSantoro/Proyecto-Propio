@@ -1,3 +1,14 @@
+const productos = [
+  { id: 1, nombre: "Remera Blanca", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg" },
+  { id: 2, nombre: "Buzo", precio: 6000, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg" },
+  { id: 3, nombre: "Gorra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg" },
+  { id: 4, nombre: "Remera Negra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg" },
+  { id: 5, nombre: "Cuadro", precio: 4000, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg" },
+  { id: 6, nombre: "Pin", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg" },
+  { id: 7, nombre: "Remera Celeste", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg" },
+  { id: 8, nombre: "Sticker", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg" },
+];
+
 const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("lista-carrito");
 const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
@@ -6,43 +17,28 @@ const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 
-fetch("../data.json")
-  .then((response) => response.json())
-  .then((productos) => {
-    mostrarProductos(productos);
-  })
-  .catch((error) => {
-    console.error("Error al obtener los productos:", error);
-  });
-
-function mostrarProductos(productos) {
-  console.log(productos)
+function mostrarProductos() {
   const contenedorProductos = document.getElementById("contenedor-productos");
+
   productos.forEach((producto) => {
     const item = document.createElement("div");
     item.classList.add("producto", "card-producto");
     item.innerHTML = `
-      <div class="card">
-        <img src="${producto.img}" style="max-width: 100%">
-        <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <h4 class="card-subtitle">${producto.categoria}<h4>
-          <p class="card-text">$${producto.precio}</p>
-          <button id="agregar-${producto.id}" class="btn btn-dark">Agregar al carrito</button>
-        </div>
-      </div>
-    `;
+  <div class="card">
+    <img src="${producto.img}" style="max-width: 100%">
+    <div class="card-body">
+      <h5 class="card-title">${producto.nombre}</h5>
+      <h4 class="card-subtitle">${producto.categoria}<h4>
+      <p class="card-text">$${producto.precio}</p>
+      <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-dark">Agregar al carrito</button>
+    </div>
+  </div>
+`;
     contenedorProductos.appendChild(item);
-
-    const btnAgregar = document.getElementById(`agregar-${producto.id}`)
-    btnAgregar.addEventListener("click", () => {
-      agregarAlCarrito(producto.id, productos)
-    })
   });
 }
 
-
-function agregarAlCarrito(idProducto, productos) {
+function agregarAlCarrito(idProducto) {
   const producto = productos.find((p) => p.id === idProducto);
   carrito.push(producto);
   actualizarCarrito();
@@ -84,18 +80,18 @@ function actualizarCarrito() {
 
 botonVaciarCarrito.addEventListener("click", () => {
   Swal.fire({
-    title: 'Â¿EstÃ¡ seguro de que desea vaciar el carrito?',
-    text: "Esta acciÃ³n no se puede deshacer",
+    title: '¿Está seguro de que desea vaciar el carrito?',
+    text: "Esta acción no se puede deshacer",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'SÃ­, vaciar carrito'
+    confirmButtonText: 'Sí, vaciar carrito'
   }).then((result) => {
     if (result.isConfirmed) {
       vaciarCarrito();
       Swal.fire(
-        'Â¡Carrito vaciado!',
+        '¡Carrito vaciado!',
         '',
         'success'
       )
@@ -120,5 +116,7 @@ function vaciarCarrito() {
 }
 
 
+window.addEventListener("load", () => {
+  mostrarProductos();
 
-
+});
