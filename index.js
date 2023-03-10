@@ -1,13 +1,13 @@
-const productos = [
-  { id: 1, nombre: "Remera Blanca", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg" },
-  { id: 2, nombre: "Buzo", precio: 6000, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg" },
-  { id: 3, nombre: "Gorra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg" },
-  { id: 4, nombre: "Remera Negra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg" },
-  { id: 5, nombre: "Cuadro", precio: 4000, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg" },
-  { id: 6, nombre: "Pin", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg" },
-  { id: 7, nombre: "Remera Celeste", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg" },
-  { id: 8, nombre: "Sticker", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg" },
-];
+// const productos = [
+//   { id: 1, nombre: "Remera Blanca", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remerablanca.jpeg" },
+//   { id: 2, nombre: "Buzo", precio: 6000, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/buzo.jpg" },
+//   { id: 3, nombre: "Gorra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/gorra.jpg" },
+//   { id: 4, nombre: "Remera Negra", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeranegra.jpg" },
+//   { id: 5, nombre: "Cuadro", precio: 4000, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/cuadro.jpg" },
+//   { id: 6, nombre: "Pin", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/pin.jpg" },
+//   { id: 7, nombre: "Remera Celeste", precio: 3500, categoria: "Indumentaria", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/remeraceleste.jpeg" },
+//   { id: 8, nombre: "Sticker", precio: 500, categoria: "Varios", talle: "M", img: "https://raw.githubusercontent.com/SantiagoSantoro/Proyecto-propio/main/imagenes/sticker.jpg" },
+// ];
 
 const contenedorProductos = document.getElementById("contenedor-productos");
 const contenedorCarrito = document.getElementById("lista-carrito");
@@ -17,26 +17,37 @@ const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 
-function mostrarProductos() {
+fetch("../data.json")
+  .then((response) => response.json())
+  .then((productos) => {
+    mostrarProductos(productos);
+    console.log(productos)
+  })
+  .catch((error) => {
+    console.error("Error al obtener los productos:", error);
+  });
+
+function mostrarProductos(productos) {
   const contenedorProductos = document.getElementById("contenedor-productos");
 
   productos.forEach((producto) => {
     const item = document.createElement("div");
     item.classList.add("producto", "card-producto");
     item.innerHTML = `
-  <div class="card">
-    <img src="${producto.img}" style="max-width: 100%">
-    <div class="card-body">
-      <h5 class="card-title">${producto.nombre}</h5>
-      <h4 class="card-subtitle">${producto.categoria}<h4>
-      <p class="card-text">$${producto.precio}</p>
-      <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-dark">Agregar al carrito</button>
-    </div>
-  </div>
-`;
+      <div class="card">
+        <img src="${producto.img}" style="max-width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">${producto.nombre}</h5>
+          <h4 class="card-subtitle">${producto.categoria}<h4>
+          <p class="card-text">$${producto.precio}</p>
+          <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-dark">Agregar al carrito</button>
+        </div>
+      </div>
+    `;
     contenedorProductos.appendChild(item);
   });
 }
+
 
 function agregarAlCarrito(idProducto) {
   const producto = productos.find((p) => p.id === idProducto);
