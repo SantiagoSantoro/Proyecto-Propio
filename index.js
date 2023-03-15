@@ -3,8 +3,7 @@ const contenedorCarrito = document.getElementById("lista-carrito");
 const botonVaciarCarrito = document.getElementById("boton-vaciar-carrito");
 const totalCarrito = document.getElementById("total-carrito");
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-
+const botonConfirmaCompra = document.getElementById("confirma-compra");;
 
 fetch("../data.json")
   .then((response) => response.json())
@@ -39,7 +38,6 @@ function mostrarProductos(productos) {
     })
   });
 }
-
 
 function agregarAlCarrito(idProducto, productos) {
   const producto = productos.find((p) => p.id === idProducto);
@@ -106,6 +104,7 @@ function eliminarDelCarrito(idProducto) {
   const productoIndex = carrito.findIndex((p) => p.id === idProducto);
   carrito.splice(productoIndex, 1);
   actualizarCarrito();
+  Swal.fire('Producto eliminado del carrito')
 
   // Actualizar Local Storage
 
@@ -117,6 +116,30 @@ function vaciarCarrito() {
   actualizarCarrito();
 
 }
+
+function confirmaCompra() {
+  Swal.fire({
+    title: '¿Está seguro de que desea confirmar la compra?',
+    text: "Esta acción no se puede deshacer",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, confirmar compra'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarCarrito()
+      Swal.fire(
+        '¡Compra confirmada!. En segundos recibiras un e-mail con la factura de tu compra',
+        '',
+        'success'
+      )
+    }
+  })
+}
+
+
+botonConfirmaCompra.addEventListener("click", confirmaCompra);
 
 
 
