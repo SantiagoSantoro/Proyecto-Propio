@@ -74,7 +74,7 @@ function actualizarCarrito() {
   });
 
   // Actualizar total de la compra con destructuración
-
+  
   const total = carrito.reduce((acc, { precio }) => acc + precio, 0);
   const { innerText } = totalCarrito;
   totalCarrito.innerText = `Total de la compra: $${total}`;
@@ -129,7 +129,7 @@ function confirmaCompra() {
     });
     return;
   }
-
+  
   Swal.fire({
     title: '¿Está seguro de que desea confirmar la compra?',
     text: "Esta acción no se puede deshacer",
