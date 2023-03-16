@@ -74,7 +74,7 @@ function actualizarCarrito() {
   });
 
   // Actualizar total de la compra con destructuración
-  
+
   const total = carrito.reduce((acc, { precio }) => acc + precio, 0);
   const { innerText } = totalCarrito;
   totalCarrito.innerText = `Total de la compra: $${total}`;
@@ -121,6 +121,15 @@ function vaciarCarrito() {
 }
 
 function confirmaCompra() {
+  if (carrito.length === 0) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Oops...',
+      text: 'Debes agregar al menos un producto al carrito',
+    });
+    return;
+  }
+
   Swal.fire({
     title: '¿Está seguro de que desea confirmar la compra?',
     text: "Esta acción no se puede deshacer",
@@ -133,13 +142,14 @@ function confirmaCompra() {
     if (result.isConfirmed) {
       vaciarCarrito()
       Swal.fire(
-        '¡Compra confirmada!. En segundos recibiras un e-mail con la factura de tu compra',
+        '¡Compra confirmada!. En segundos recibirás un e-mail con la factura de tu compra',
         '',
         'success'
       )
     }
   })
 }
+
 
 
 botonConfirmaCompra.addEventListener("click", confirmaCompra);
