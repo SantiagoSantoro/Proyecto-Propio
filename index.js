@@ -57,27 +57,30 @@ function agregarAlCarrito(idProducto, productos) {
 
 actualizarCarrito()
 
+//Destructuración:
+
 function actualizarCarrito() {
-  const contenedorCarrito = document.getElementById("lista-carrito");
+  const { innerHTML } = contenedorCarrito;
   contenedorCarrito.innerHTML = "";
-  carrito.forEach((producto) => {
+  carrito.forEach(({ img, nombre, precio, id }) => {
     const item = document.createElement("div");
     item.classList.add("producto");
     item.innerHTML = `
-    <img src="${producto.img}" alt="${producto.nombre}" style="width: 400px; height: 400px; border-radius: 5px;">
-      <p>${producto.nombre} - $${producto.precio}</p>
-      <button onclick="eliminarDelCarrito(${producto.id})" class="btn btn-danger">Eliminar</button>
+      <img src="${img}" alt="${nombre}" style="width: 400px; height: 400px; border-radius: 5px;">
+      <p>${nombre} - $${precio}</p>
+      <button onclick="eliminarDelCarrito(${id})" class="btn btn-danger">Eliminar</button>
     `;
     contenedorCarrito.appendChild(item);
   });
 
-
-  // Actualizar total de la compra
-  const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
-  const totalCarrito = document.getElementById("total-carrito");
+  // Actualizar total de la compra con destructuración
+  
+  const total = carrito.reduce((acc, { precio }) => acc + precio, 0);
+  const { innerText } = totalCarrito;
   totalCarrito.innerText = `Total de la compra: $${total}`;
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
 
 botonVaciarCarrito.addEventListener("click", () => {
   Swal.fire({
