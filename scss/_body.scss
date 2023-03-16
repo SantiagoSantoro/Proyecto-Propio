@@ -1,50 +1,70 @@
 body {
     background-size: cover;
-    background-image: url("../imagenes/background.jpg"); 
+    background-image: url("../imagenes/background.jpg");
     background-position: center;
     overflow-x: hidden;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $color_secundario;
+    padding: 0 5px;
+    margin: 0;
+    gap: 20px;
     
-    
+  
+    li {
+      list-style: none;
+      text-align: center;
+      font-size: 23px;
+      font-family: 'Anton', sans-serif;
+      -webkit-text-fill-color: $color_secundario;
+      -webkit-text-stroke: 1px $color_primario;
+      display: inline-block;
+      margin: 0 10px;
+      transition: width 1s;
+      letter-spacing: 1px;
+      color: transparent;
+  
+      &:hover {
+        color: black;
+      }
+    }
+  
+    li.current {
+      background-color: $color_primario;
+      color: $color_secundario;
+      padding: 5px;
+    }
+  }
+  
 
-    header nav ul {
-        text-align: center;
-        
-        
-        li {
-            list-style: none;
-            text-align: center;
-            font-size: 23px;
-            font-family: 'Anton', sans-serif;
-            -webkit-text-fill-color: $color_secundario;
-            -webkit-text-stroke: 1px $color_primario;
-            display: inline-block;
-            border-style: solid;
-            margin: 2;
-            width: 150px;
-            background-color: $color_secundario;
-            box-shadow: 1px 2px 15px;
-            transition: width 1s;
-            letter-spacing: 1px;
-            
-            &:hover {
-                color: black;
 
-            }
-        }
+h1 {
+    text-align: center;
+    font-size: 150px;
+    font-family: 'Bangers', cursive;
+    -webkit-text-fill-color: $color_secundario;
+    -webkit-text-stroke: 2px $color_primario;
+    text-shadow: 0px 0px 9px $color_terciario;
+    letter-spacing: 6px;
+    font-weight: 700;
+    animation: scale-in-center .8s cubic-bezier(.25, .46, .45, .94) both
+}
+
+
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1
     }
 
-    h1  { 
-        text-align: center; 
-        font-size: 150px; 
-        font-family: 'Bangers', cursive;
-        -webkit-text-fill-color: $color_secundario;
-        -webkit-text-stroke: 2px $color_primario;
-        text-shadow: 0px 0px 9px $color_terciario;
-        letter-spacing: 6px;
-        font-weight: 700;
-        animation: scale-in-center .8s cubic-bezier(.25,.46,.45,.94) both
-       
+    100% {
+        transform: scale(1);
+        opacity: 1
     }
-        
-    }
-    @keyframes scale-in-center{0%{transform:scale(0);opacity:1}100%{transform:scale(1);opacity:1}}
+}
