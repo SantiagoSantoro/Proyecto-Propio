@@ -3,9 +3,9 @@ body {
     background-image: url("../imagenes/background.jpg");
     background-position: center;
     overflow-x: hidden;
-  }
-  
-  header nav ul {
+}
+
+header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,33 +14,39 @@ body {
     padding: 0 5px;
     margin: 0;
     gap: 20px;
-    
-  
+    height: 60px;
+
+    .logo {
+        width: 80px;
+        height: 100%;
+    }
+
+
     li {
-      list-style: none;
-      text-align: center;
-      font-size: 23px;
-      font-family: 'Anton', sans-serif;
-      -webkit-text-fill-color: $color_secundario;
-      -webkit-text-stroke: 1px $color_primario;
-      display: inline-block;
-      margin: 0 10px;
-      transition: width 1s;
-      letter-spacing: 1px;
-      color: transparent;
-  
-      &:hover {
-        color: black;
-      }
+        list-style: none;
+        text-align: center;
+        font-size: 23px;
+        font-family: 'Anton', sans-serif;
+        -webkit-text-fill-color: $color_secundario;
+        -webkit-text-stroke: 1px $color_primario;
+        display: inline-block;
+        margin: 0 10px;
+        transition: width 1s;
+        letter-spacing: 1px;
+        color: transparent;
+
+        &:hover {
+            color: black;
+        }
     }
-  
+
     li.current {
-      background-color: $color_primario;
-      color: $color_secundario;
-      padding: 5px;
+        background-color: $color_primario;
+        color: $color_secundario;
+        padding: 13px;
     }
-  }
-  
+}
+
 
 
 h1 {
@@ -55,6 +61,19 @@ h1 {
     animation: scale-in-center .8s cubic-bezier(.25, .46, .45, .94) both
 }
 
+
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
 
 
 @keyframes scale-in-center {

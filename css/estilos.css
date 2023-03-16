@@ -26,7 +26,11 @@ header nav ul {
   background-color: #fae3f3;
   padding: 0 5px;
   margin: 0;
-  gap: 20px; }
+  gap: 20px;
+  height: 60px; }
+  header nav ul .logo {
+    width: 80px;
+    height: 100%; }
   header nav ul li {
     list-style: none;
     text-align: center;
@@ -44,7 +48,7 @@ header nav ul {
   header nav ul li.current {
     background-color: black;
     color: #fae3f3;
-    padding: 5px; }
+    padding: 13px; }
 
 h1 {
   text-align: center;
@@ -56,6 +60,14 @@ h1 {
   letter-spacing: 6px;
   font-weight: 700;
   animation: scale-in-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1; }
+  100% {
+    transform: scale(1);
+    opacity: 1; } }
 
 @keyframes scale-in-center {
   0% {
