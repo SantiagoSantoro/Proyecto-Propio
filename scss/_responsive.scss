@@ -2,12 +2,28 @@
 
 
   body {
+    background-image: url("../imagenes/background.jpg");
+    background-size: cover;
 
-    nav ul {
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+
+
+    header nav ul {
+      display: block;
+      height: auto;
+      background-color: $color_secundario;
+      padding: 10px;
+    }
+
+    header nav ul .logo {
+      width: 30%;
+      height: auto;
+    }
+
+
+
+    header nav ul li {
+      display: block;
+      margin: 10px 0;
     }
 
     h1 {
@@ -94,21 +110,21 @@
       align-items: center;
       gap: 20px;
     }
-    
+
     .card {
       display: inline-block;
       text-align: center;
       margin: 10px;
       max-width: 90%;
     }
-}
-
-.body_historia {
-  text-align: center;
-
-  .historia {
-    font-size: 50px;
-    text-align: center;
   }
-}
+
+  .body_historia {
+    text-align: center;
+
+    .historia {
+      font-size: 50px;
+      text-align: center;
+    }
+  }
 }
