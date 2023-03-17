@@ -3,7 +3,7 @@ body {
     background-image: url("../imagenes/background.jpg");
     background-position: center;
     overflow-x: hidden;
-}
+    }
 
 header nav ul {
     display: flex;
@@ -45,6 +45,7 @@ header nav ul {
         color: $color_secundario;
         padding: 13px;
     }
+    
 }
 
 
