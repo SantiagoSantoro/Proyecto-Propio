@@ -36,7 +36,7 @@ header nav ul {
     text-align: center;
     font-size: 23px;
     font-family: 'Anton', sans-serif;
-    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-fill-color: #ffff;
     -webkit-text-stroke: 1px black;
     display: inline-block;
     margin: 0 10px;
@@ -47,7 +47,7 @@ header nav ul {
       color: black; }
   header nav ul li.current {
     background-color: black;
-    color: #fae3f3;
+    color: #ffff;
     padding: 13px; }
 
 h1 {
@@ -276,7 +276,7 @@ a {
   -webkit-text-stroke: black;
   letter-spacing: 2px; }
   a:hover {
-    -webkit-text-fill-color: #fae3f3;
+    -webkit-text-fill-color: #ffff;
     -webkit-text-stroke: 1.5px black; }
 
 .body_fotos2 {
